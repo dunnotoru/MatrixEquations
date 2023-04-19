@@ -63,9 +63,9 @@ namespace MatrixEquations.MathObjects
         public static Matrix operator +(Matrix a, Matrix b)
         {
             if (a.RowCount != b.RowCount)
-                throw new InvalidOperationException();
+                throw new ArithmeticException();
             if (a.ColumnCount != b.ColumnCount)
-                throw new InvalidOperationException();
+                throw new ArithmeticException();
 
             Matrix result = new Matrix(a.RowCount, a.ColumnCount);
 
@@ -78,9 +78,9 @@ namespace MatrixEquations.MathObjects
         public static Matrix operator -(Matrix a, Matrix b)
         {
             if (a.RowCount != b.RowCount)
-                throw new InvalidOperationException();
+                throw new ArithmeticException();
             if (a.ColumnCount != b.ColumnCount)
-                throw new InvalidOperationException();
+                throw new ArithmeticException();
 
             Matrix result = new Matrix(a.RowCount, a.ColumnCount);
 
@@ -93,9 +93,9 @@ namespace MatrixEquations.MathObjects
         public static Matrix operator *(Matrix a, Matrix b)
         {
             if (a.RowCount != b.ColumnCount)
-                throw new InvalidOperationException();
+                throw new ArithmeticException();
             if (a.ColumnCount != b.RowCount)
-                throw new InvalidOperationException();
+                throw new ArithmeticException();
 
             Matrix result = new Matrix(a.RowCount, a.ColumnCount);
 
@@ -123,6 +123,19 @@ namespace MatrixEquations.MathObjects
             return result;
         }
 
+        public static Vector operator *(Matrix a, Vector b)
+        {
+            if (b.Size != a.ColumnCount)
+                throw new ArithmeticException();
+
+            Vector result = new Vector(b.Size);
+            for (int row = 0; row < a.RowCount; row++)
+                for (int col = 0; col < a.ColumnCount; col++)
+                    result[row] += a[row, col] * b[col];
+
+            return result;
+        }
+
         public static explicit operator Matrix(Vector vector)
         {
             Matrix result = new Matrix(vector.Size, 1);
@@ -131,11 +144,10 @@ namespace MatrixEquations.MathObjects
             return result;
         }
 
-
         public static float MultiplyRowByColumn(float[] row, float[] column)
         {
             if (row.Length != column.Length)
-                throw new ArgumentException();
+                throw new ArithmeticException();
 
             float result = 0;
             for (int i = 0; i < row.Length; i++)

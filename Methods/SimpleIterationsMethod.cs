@@ -29,6 +29,7 @@ namespace MatrixEquations.Methods
 
             return x.Last();
         }
+
         public static (SquareMatrix,Vector) TransformSystemForIterativeMethod(SquareMatrix coefficientMatrix, Vector freeTerms)
         {
             SquareMatrix alpha = new SquareMatrix(coefficientMatrix.Size);
@@ -41,6 +42,7 @@ namespace MatrixEquations.Methods
                         alpha[row, column] = -coefficientMatrix[row, column] / coefficientMatrix[row, row];
                 beta[row] = freeTerms[row] / coefficientMatrix[row, row];
             }
+
             return (alpha, beta);
         }
     }
