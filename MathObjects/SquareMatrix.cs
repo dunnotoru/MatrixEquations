@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MatrixEquations
+namespace MatrixEquations.MathObjects
 {
     public class SquareMatrix : Matrix 
     {

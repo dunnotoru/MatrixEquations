@@ -41,14 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GaussMethod.cs" />
-    <Compile Include="LinearSystem.cs" />
-    <Compile Include="Matrix.cs" />
+    <Compile Include="Methods\GaussMethod.cs" />
+    <Compile Include="MathObjects\LinearSystem.cs" />
+    <Compile Include="MathObjects\Matrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RunThroughMethod.cs" />
-    <Compile Include="SimpleIterationsMethod.cs" />
-    <Compile Include="SquareMatrix.cs" />
-    <Compile Include="Vector.cs" />
+    <Compile Include="Methods\RunThroughMethod.cs" />
+    <Compile Include="Methods\SimpleIterationsMethod.cs" />
+    <Compile Include="MathObjects\SquareMatrix.cs" />
+    <Compile Include="MathObjects\Vector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

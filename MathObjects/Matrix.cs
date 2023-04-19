@@ -2,7 +2,7 @@
 using System.Text;
 using System;
 
-namespace MatrixEquations
+namespace MatrixEquations.MathObjects
 {
     public class Matrix : ICloneable, IEnumerable
     {

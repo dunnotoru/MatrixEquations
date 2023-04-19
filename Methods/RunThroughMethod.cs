@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MatrixEquations.MathObjects;
 
-namespace MatrixEquations
+namespace MatrixEquations.Methods
 {
     public class RunThroughMethod
     {
@@ -16,9 +13,7 @@ namespace MatrixEquations
             CoefficientMatrix = coefficientMatrix;
             FreeTerms = freeTerms;
         }
-
         
-
         public Vector Solve()
         {
             SquareMatrix matrix = (SquareMatrix)CoefficientMatrix.Clone();
